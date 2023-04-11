@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Home from './Home'
+import SearchButton from './SearchButton'
+import SearchForm from './SearchForm'
 
 function App() {
+
+  const [searchFormVal, setSearchFormVal] = useState('');
+
   return (
-    <div className="App">
-      <button type="button" onClick={() => {
-        fetch('https://ysw-crawling.fly.dev/api/data')
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);
-        });
-      }}>get data</button>
-    </div>
+    <>
+      <div className="App">
+        <SearchForm setSearchFormVal={setSearchFormVal} searchFormVal={searchFormVal}/>
+        <SearchButton searchFormVal={searchFormVal}/>
+      </div>
+      <Home/>
+    </>
   );
 }
 

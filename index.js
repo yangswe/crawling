@@ -1,13 +1,17 @@
 import express from 'express'
 import path from 'path'
+import bodyParser from 'body-parser'
 
 const app = express()
 const port = process.env.POST || 80
 const __dirname = path.resolve();
 app.listen(port)
 
-app.use('/api/data', (req, res)=> {
-    res.json({greeting: 'hello?'})
+//post-body의 값 파싱을 위해 bodyparser 사용
+app.use(bodyParser.json()); 
+
+app.post('/api/data', (req, res)=> {
+    res.json(req.body)
 })
 
 // 리액트 정적 파일 제공

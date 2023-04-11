@@ -2,6 +2,7 @@
   "type": "module",
   "dependencies": {
     "@types/react": "^18.0.28",
+    "body-parser": "^1.20.2",
     "concurrently": "^7.6.0",
     "express": "^4.18.2",
     "nodemon": "^2.0.21"
@@ -12,7 +13,7 @@
     "start": "node index.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:crawling\"",
     "dev:server": "npm start",
-    "dev:client": "cd crawling && npm start"
+    "dev:crawling": "cd crawling && npm run build && npm start"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^3.1.0",
