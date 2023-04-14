@@ -13,7 +13,7 @@ function SearchForm(props: Props) {
     };
 
     return <>
-        <input type="text" value={props.searchFormVal} onChange={(e) => chagneState(e)} />
+        <input type="text" className="search-text" value={props.searchFormVal} onChange={(e) => chagneState(e)} />
     </>;
 }
 

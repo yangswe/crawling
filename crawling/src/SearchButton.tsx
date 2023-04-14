@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from "axios";
 interface Props {
     searchFormVal: string
 }
@@ -7,26 +7,14 @@ interface Props {
 //버튼&이벤트 컴포넌트
 const SearchButton = (props:Props)=> {
     return <>
-        <button type="button" onClick={() => {
-          fetch('http://localhost/api/data', {
-            method:'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                searchValue:props.searchFormVal
-            })
-        
-        })
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            console.log(data);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+        <button type="button" className="search-btn" onClick={() => {
+            axios({
+                method: 'post',
+                url: 'http://localhost/api/data',
+                data: {
+                    searchValue:props.searchFormVal
+                }
+            }).then((response) => console.log(response));
         }}>get data</button>
     </>
 }
