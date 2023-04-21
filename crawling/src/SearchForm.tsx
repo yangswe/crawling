@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 
 interface Props {
     setSearchFormVal: React.Dispatch<React.SetStateAction<string>>;
@@ -6,7 +6,7 @@ interface Props {
 }
 
 //검색 Form 컴포넌트
-function SearchForm(props: Props) {
+const SearchForm:FC<Props> = (props: Props) => {
 
     const chagneState = (e:React.ChangeEvent<HTMLInputElement>) => {
         props.setSearchFormVal(e.target.value);

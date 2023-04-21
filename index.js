@@ -133,14 +133,15 @@ console.log('start')
       const location = item.querySelector(".article-region-name");
       const price = item.querySelector(".article-price");
       const link = item.querySelector(".flea-market-article-link");
-      
+      const img = item.querySelector(".flea-market-article-link .card-photo img");
 
       if (title && location && price && link) {
         contentsObjList.push({
           title: title.textContent, // 타이틀
-          location: location.textContent, // 내용
+          locationName: location.textContent, // 위치
           price: price.textContent, // 카테고리
           link: link.href, // 링크
+          imageSrc: img.src
         });
       }
       

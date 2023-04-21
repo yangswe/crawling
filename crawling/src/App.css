@@ -45,3 +45,18 @@
   font-size: 13px;
   height: 20px;
 }
+
+.itemLi {
+  border: 1px solid;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  width: 300px;
+}
+
+.itemLi .itemImgDiv {
+  width: 300px;
+}
+
+.itemLi .itemImgDiv img{
+  width: 100%;
+  height: 100%;
+}
