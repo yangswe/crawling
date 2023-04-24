@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import {SearchResultType} from 'SearchTypes'
 
 interface Props {
@@ -10,16 +11,14 @@ interface Props {
 const SearchResult = (props:Props)=> {
     return <>
         <div>
-            <ul>
-            { props.searchResult?.map((item) => {
-                return <li className="itemLi">
+            { props.searchResult ? props.searchResult?.map((item) => {
+                return <div className="itemLi">
                     <div className="itemImgDiv"><img src={item.imageSrc}/></div>
                     <p>{item.title}</p>
                     <p>{item.price}</p>
                     <p>{item.locationName}</p>
-                </li>
-            })}
-            </ul>
+                </div>
+            }) : <img src={`${new URL('/public_assets/Loading.gif', import.meta.url)}`}/> }
         </div>
     </>
 }

@@ -10,6 +10,9 @@ interface Props {
 const SearchButton:FC<Props> = (props:Props)=> {
     return <>
         <button type="button" className="search-btn" onClick={() => {
+            
+            props.setSearchResult(null)
+
             axios({
                 method: 'post',
                 url: 'http://localhost/api/data',

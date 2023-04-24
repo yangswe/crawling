@@ -1,6 +1,5 @@
 .App {
   margin: 0 auto;
-  max-width: 500px;
   padding: 10px;
 }
 .App .form {
@@ -49,11 +48,9 @@
 .itemLi {
   border: 1px solid;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  width: 300px;
-}
-
-.itemLi .itemImgDiv {
-  width: 300px;
+  height:600px;
+  width: 30%;
+  float: left;
 }
 
 .itemLi .itemImgDiv img{

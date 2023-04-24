@@ -14,22 +14,11 @@ function App() {
 
   return (
     <>
-      <Link to="/">
         <div className="App">
           <div className='form'>
-            <SearchForm setSearchFormVal={setSearchFormVal} searchFormVal={searchFormVal}/>
-            <SearchButton setSearchResult={setSearchResult} searchFormVal={searchFormVal}/>
-
-            <SearchResult searchResult={searchResult}/>
+            App.tsx
           </div>
         </div>
-      </Link>
-
-      <Link to="/sayHi">
-        <div>
-          <h3>Hi</h3>
-        </div>
-      </Link>
       <Home/>
     </>
   );
