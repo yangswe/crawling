@@ -1,3 +1,3 @@
-function getImgUrl(path:string) {
+export function getImgUrl(path:string) {
     return new URL(path, import.meta.url)
 }
