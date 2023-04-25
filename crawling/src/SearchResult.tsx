@@ -2,6 +2,7 @@ import React from "react";
 
 
 import {SearchResultType} from 'SearchTypes'
+import {getImgUrl} from './utils/common'
 
 interface Props {
     searchResult: Array<SearchResultType>|null
@@ -18,7 +19,7 @@ const SearchResult = (props:Props)=> {
                     <p>{item.price}</p>
                     <p>{item.locationName}</p>
                 </div>
-            }) : <img src={`${new URL('/public_assets/Loading.gif', import.meta.url)}`}/> }
+            }) : <img src={`${getImgUrl('/public_assets/Loading.gif')}`}/> }
         </div>
     </>
 }
