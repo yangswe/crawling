@@ -3,11 +3,22 @@ import axios from "axios";
 import {SearchResultType} from 'SearchTypes'
 interface Props {
     searchFormVal: string
-    setSearchResult: React.Dispatch<React.SetStateAction<Array<SearchResultType>|null>>;
+    doNotSearchFormVal:string
+    setSearchResult: React.Dispatch<React.SetStateAction<Array<SearchResultType>|null>>
 }
 
 //버튼&이벤트 컴포넌트
 const SearchButton:FC<Props> = (props:Props)=> {
+
+    function getResultObj(result:SearchResultType) {
+        return {
+            title: result.title,
+            locationName: result.locationName,
+            price: result.price,
+            link: result.link,
+            imageSrc: result.imageSrc
+        }
+    }
     return <>
         <button type="button" className="search-btn" onClick={() => {
             
@@ -20,18 +31,19 @@ const SearchButton:FC<Props> = (props:Props)=> {
                     searchValue:props.searchFormVal
                 }
             }).then((response) => {
-                console.log(response)
-                props.setSearchResult(
-                    response.data?.map((result:SearchResultType)=>{
-                        return {
-                            title: result.title,
-                            locationName: result.locationName,
-                            price: result.price,
-                            link: result.link,
-                            imageSrc: result.imageSrc
-                        }
+                let result = props.doNotSearchFormVal != '' ?
+                    response.data?.filter((result:SearchResultType)=>{
+                        
+                        const isExist = props.doNotSearchFormVal.split(',').some((v) => result.title.indexOf(v) != -1)
+                        
+                        if (!isExist) return getResultObj(result) //필터링
+                        
+                        
                     })
-                )       
+                    :
+                    response.data?.map((result:SearchResultType)=>getResultObj(result))
+                console.log(result)
+                props.setSearchResult(result)
             });
         }}>get data</button>
     </>
